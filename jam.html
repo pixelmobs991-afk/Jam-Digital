@@ -5,7 +5,6 @@
     <title>Night Dashboard</title>
     <style>
         body {
-          /* Background gambar dibuang, diganti warna gelap solid */
           background-color: #0b0e14; 
           color: #f8fafc;
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -30,22 +29,21 @@
         #weather {
             font-size: 1.1rem;
             color: #cbd5e1;
-            margin-bottom: 50px; /* Jarak ke area kode di bawahnya */
+            margin-bottom: 50px;
         }
 
-        /* Styling teks kode Python murni tanpa box */
         .code-block {
             font-family: 'Consolas', 'Courier New', Courier, monospace;
             font-size: 1.6rem;
             line-height: 1.6;
             text-align: left; 
         }
-        .keyword { color: #c678dd; }     /* Ungu: if, while */
-        .function { color: #61afef; }    /* Biru: success */
-        .operator { color: #56b6c2; }    /* Toska: == */
-        .boolean { color: #d19a66; }     /* Oranye: True, False */
-        .action { color: #e5c07b; }      /* Kuning: celebrate, try_again, be_awesome */
-        .indent { padding-left: 2.5rem; }  /* Efek tab/indentasi */
+        .keyword { color: #c678dd; }     
+        .function { color: #61afef; }    
+        .operator { color: #56b6c2; }    
+        .boolean { color: #d19a66; }     
+        .action { color: #e5c07b; }      
+        .indent { padding-left: 2.5rem; }  
     </style>
 </head>
 <body>
@@ -62,7 +60,7 @@
             <span class="action">tidur_sekarang_yaa</span>()
         </div>
         <div>
-            <span class="keyword">while</span> <span class="function">belum_bisa_tidur</span>() <span class="operator">==</span> <span class="boolean">False</span>:
+            <span class="keyword">while</span> <span class="function">belum_bisa_tidur</span>() <span class="operator">==</span> <span class="boolean">True</span>:
         </div>
         <div class="indent">
             <span class="action">mikirin_siapa_sihh</span>()
@@ -75,17 +73,12 @@
     <script>
         function updateClock() {
             const now = new Date();
-            
-            // Update Jam
             const timeString = now.toLocaleTimeString('id-ID', { hour12: false });
             document.getElementById('clock').textContent = timeString;
             
-            // Update Tanggal
             const dateString = now.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long' });
             document.getElementById('date').textContent = dateString;
         }
-
-        // Jalankan tiap detik
         setInterval(updateClock, 1000);
         updateClock();
     </script>
