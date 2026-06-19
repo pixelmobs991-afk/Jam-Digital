@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Night Dashboard</title>
     <style>
-      body {
-        background-color: #0f172a;
-        color: #f8fafc;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-item: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-      }
-      
-      #clock {
-        font-size: 6rem;
-        font-weight: bold;
-        letter-spacing: -2px;
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.1)
-      }
-
-      #date {
-        font-size: 1.5rem;
-        color: #94a3b8;
-        margin-bottom: 20px;
-      }
+        body {
+            background-color: #0f172a; /* Dark mode background */
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #clock {
+            font-size: 6rem;
+            font-weight: bold;
+            letter-spacing: -2px;
+            text-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+        #date {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
 
     <div id="clock">00:00:00</div>
     <div id="date">Hari ini, Tanggal</div>
-    <div id="weather">Malam yang indah... 🌌</div>
+    <div id="weather">Malam yang indah seperti dia... 🌌</div>
 
     <script>
-      function updateClock() {
-        const now = new Date();
+        function updateClock() {
+            const now = new Date();
+            
+            // Update Jam
+            const timeString = now.toLocaleTimeString('id-ID', { hour12: false });
+            document.getElementById('clock').textContent = timeString;
+            
+            // Update Tanggal
+            const dateString = now.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long' });
+            document.getElementById('date').textContent = dateString;
+        }
 
-        //update jam
-        const timeString = now.toLocaleTimeString('id-ID', {hour12: false});
-        document.getElementById('clock').textContent = timeString;
-
-        //update tanggal
-        const dateString = now.toLocaleTimeString('id-ID', {weekday: 'long', day: 'numeric', month: 'long'});
-        document.getElementById('date').textContent = dateString;
-      }
-
-      //jalankan tiap detik
-      setInterval(updateClock, 1000);
-      updateClock();
+        // Jalankan tiap detik
+        setInterval(updateClock, 1000);
+        updateClock();
     </script>
-  </body>
+</body>
 </html>
